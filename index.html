@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <title>Bato-bato pik</title>
+</head>
+<style>
+  body {
+    font-family: Helvetica, sans-serif;
+    text-align: center;
+  }
+</style>
+<body>
+  <h1 id='title'>Kamusta kaibigan</h1>
+  <h2>Subukan ang iyong kapalaran sa paglalaro ng Bato-bato pik!</h2>
+  <div>
+    <button onclick='playGame("🪨")'>🪨</button>
+    <button onclick='playGame("📜")'>📜</button>
+    <button onclick='playGame("✂️")'>✂️</button>
+  </div>
+
+  <p id='result' hidden></p>
+
+  <script>
+    const searchParams = new URLSearchParams(location.search);
+    const name = searchParams.get('name');
+
+    if (name) {
+      document.getElementById('title').innerText = `Kamusta ${name}`
+    }
+
+    function playGame (option) {
+      fetch('/', { method: 'POST', body: option })
+        .then(response => response.text())
+        .then(text => {
+          const resultElement = document.getElementById('result')
+          resultElement.innerText = text
+          resultElement.hidden = false
+        })
+    }
+  </script>
+</body>
+</html>
