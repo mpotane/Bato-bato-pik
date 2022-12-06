@@ -29,9 +29,12 @@ const server = http.createServer((request, response) => {
   }
 })
 
+
+const CYAN = '\x1b[36m'
+const RESET = '\x1b[0m';
 /* Listening for requests on port 4001. */
 server.listen(4001, () => {
-  console.log("Server is listening at " + server.address().port);
+  console.log(`Server is listening at ${CYAN}http://localhost:${server.address().port}/?name=Juan${RESET}`);
 })
 
 // Function for handling POST responses
