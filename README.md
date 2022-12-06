@@ -8,6 +8,6 @@
 node app.js
 ```
 
-- In the browser type the following.
-  > localhost:4001/?name=Juan
-  - or **CTRL** + click the link after running first command.
+- In the browser type the following
+  ```localhost:4001/?name=Juan```
+- or **CTRL** + click the link after running first command.
